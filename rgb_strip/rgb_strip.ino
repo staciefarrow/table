@@ -36,9 +36,9 @@ void loop() {
   while (Serial.available() > 0) {
     String reading = Serial.readString();
 
-    if (reading == "e") {
+    if (reading == "ser") {
       ledEnable = true;
-    } else if (reading == "s") {
+    } else if (reading == "pot") {
       ledEnable = false;
     } else {
       hexColor = reading;
