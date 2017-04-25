@@ -51,31 +51,31 @@ void loop() {
         set_all_motor_speeds(speeds);
         break;
     case 'r': //right
-        digitalWrite(motor_back_right_dir, LOW);
-        digitalWrite(motor_back_left_dir, LOW);
-        digitalWrite(motor_front_right_dir, HIGH);
-        digitalWrite(motor_front_left_dir, HIGH);
+        digitalWrite(motor_back_right_dir, HIGH);
+        digitalWrite(motor_back_left_dir, HIGH);
+        digitalWrite(motor_front_right_dir, LOW);
+        digitalWrite(motor_front_left_dir, LOW);
         set_all_motor_speeds(speeds);
         break;
     case 'l': //left
-        digitalWrite(motor_back_right_dir, HIGH);
-        digitalWrite(motor_back_left_dir, HIGH);
-        digitalWrite(motor_front_right_dir, LOW);
-        digitalWrite(motor_front_left_dir, LOW);
+        digitalWrite(motor_back_right_dir, LOW);
+        digitalWrite(motor_back_left_dir, LOW);
+        digitalWrite(motor_front_right_dir, HIGH);
+        digitalWrite(motor_front_left_dir, HIGH);
         set_all_motor_speeds(speeds);
         break;
     case 'c': //clockwise
-        digitalWrite(motor_back_right_dir, LOW);
-        digitalWrite(motor_back_left_dir, LOW);
-        digitalWrite(motor_front_right_dir, LOW);
-        digitalWrite(motor_front_left_dir, LOW);
-        set_all_motor_speeds(speeds);
-        break;
-    case 'o': //counterclockwise
         digitalWrite(motor_back_right_dir, HIGH);
         digitalWrite(motor_back_left_dir, HIGH);
         digitalWrite(motor_front_right_dir, HIGH);
         digitalWrite(motor_front_left_dir, HIGH);
+        set_all_motor_speeds(speeds);
+        break;
+    case 'o': //counterclockwise
+        digitalWrite(motor_back_right_dir, LOW);
+        digitalWrite(motor_back_left_dir, LOW);
+        digitalWrite(motor_front_right_dir, LOW);
+        digitalWrite(motor_front_left_dir, LOW);
         set_all_motor_speeds(speeds);
         break;
     case 's': //stop
