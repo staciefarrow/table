@@ -5,10 +5,10 @@ Servo servodown;
 
 int servopin_up = 10;
 int servopin_down = 9;
-int off_pos_up = 150; //angle when idle
-int off_pos_down = 30;
-int on_pos_up = 30; //angle when pushing button
-int on_pos_down = 150;
+int off_pos_up = 180; //angle when idle
+int off_pos_down = 0;
+int on_pos_up = 50; //angle when pushing button
+int on_pos_down = 130;
 int command = 0;
 int amount = 0;
 int switch_delay = 500;
@@ -55,12 +55,12 @@ void loop() {
   if (incoming > 127) {
     command = 1; //up
     amount1 = incoming - 127;
-    amount = map(amount1, 0, 128, 0, 3000);
+    amount = map(amount1, 0, 128, 0, 8000);
   }
   else if (incoming > 0) {
     command = -1; //down
     amount1 = incoming;
-    amount = map(amount1, 0, 128, 0, 3000);
+    amount = map(amount1, 0, 128, 0, 8000);
   }
   incoming = 0; //reset to zero to avoid repeat commands
   amount1 = 0;
