@@ -21,7 +21,7 @@ def writeNumber(value):
                 print("Error: incorrect Arduino address, choose 1 or 2.")
         
 	if(len(outString)<10 and len(outString)>0):
-		outString = outString.replace(outString[0],str(len(outString)-1))
+		outString = outString.replace(outString[0],str(len(outString)-1)) #send length of string as first byte
 	else:
 		outString = outString.replace(outString[0],'0') #signals that command is wrong (deal with this in Arduino code)
 
