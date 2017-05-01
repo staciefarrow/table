@@ -1,3 +1,5 @@
+// This code is for the Arduino: it decodes serial commands sent by RPI through i2c
+
 #include <Wire.h>
 
 #define ARD1_ADDR 0x04
