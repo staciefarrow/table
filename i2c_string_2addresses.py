@@ -20,8 +20,14 @@ def writeNumber(value):
         else:
                 print("Error: incorrect Arduino address, choose 1 or 2.")
         
-	outString = outString[1:]
-        
+	if(len(outString)<10 and len(outString)>0):
+		outString = outString.replace(outString[0],str(len(outString)-1))
+	else:
+		outString = outString.replace(outString[0],'0') #signals that command is wrong (deal with this in Arduino code)
+
+		        
+
+
 	for character in outString: # convert into a string and iterate over it
         	bus.write_byte(address, ord(character)) # send each char's ASCII encoding
 	return -1
@@ -38,3 +44,4 @@ while True:
 	writeNumber(var)
 	print("Wrote: "+ var)
 time.sleep(1)
+
