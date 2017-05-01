@@ -1,3 +1,5 @@
+# This code is to be used with only one Arduino: it allows to transmit serial commands as strings.
+
 import time
 import smbus
 
