@@ -19,11 +19,11 @@ while True:
     #if not var:
 	#	continue
 
-    try:
-        var = input("Enter a character: ")
-    except ValueError:
-        print "Try again"
-        continue
+	try:
+		 var = raw_input("Enter a character: ")
+	except ValueError:
+		print "Try again"
+		continue
 
 	writeNumber(var)
 	print("Sent: ", var)
