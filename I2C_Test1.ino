@@ -1,8 +1,10 @@
-// This code is for the Arduino: it decodes serial commands sent by RPI through i2c
-
 #include <Wire.h>
 
 #define ARD1_ADDR 0x04
+
+String inString = "";
+boolean isReceived = false;
+
 
 void setup() {
   // put your setup code here, to run once:
@@ -18,21 +20,28 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+
+  if (isReceived) {
+    Serial.print("String received: ");
+    Serial.println(inString);
+    isReceived = false;
+    inString = "";
+  }
+
   delay(100);
 }
 
 void receiveData(int byteCount) {
 
   int inChar;
-  String inString;
-  
-  while(Wire.available()) {
+
+  isReceived = false;
+
+  while (Wire.available()) {
     inChar = Wire.read();
     inString += char(inChar);
-    Serial.print("data received: ");
   }
 
-    Serial.print("String received: ");
-    Serial.println(inString);
+  isReceived = true;
 }
 
