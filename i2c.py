@@ -1,3 +1,5 @@
+#sends a single character through i2c
+
 import time
 import smbus
 
