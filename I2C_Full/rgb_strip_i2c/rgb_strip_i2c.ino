@@ -3,7 +3,7 @@
 
 #define ADDR 0x06
 
-int red_cathode_pwm = 3;
+int red_cathode_pwm = 3; // THIS USED TO BE A5! CHANGE WIRING! (A5 is needed for I2C)
 int green_cathode_pwm = 5;
 int blue_cathode_pwm = 6;
 
