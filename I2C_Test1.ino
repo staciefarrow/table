@@ -1,3 +1,5 @@
+// Prints i2c string
+
 #include <Wire.h>
 
 #define ARD1_ADDR 0x04
