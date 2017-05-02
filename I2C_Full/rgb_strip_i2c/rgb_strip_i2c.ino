@@ -7,7 +7,7 @@ int red_cathode_pwm = 3;
 int green_cathode_pwm = 5;
 int blue_cathode_pwm = 6;
 
-int red_analog = A5;
+int red_analog = A3;
 int green_analog = A6;
 int blue_analog = A7;
 
