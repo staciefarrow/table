@@ -16,6 +16,8 @@ int motor_front_left_pwm = 9;
 
 char dir;
 
+String inString="";
+
 int max_speed =255;
 int speeds = 255; // set the speed of all motors (range 0-255)
 
@@ -35,10 +37,16 @@ void setup() {
     Serial.begin(9600);
     Wire.begin(ADDR);
 
-    Wire.onRequest(receiveData)
+    Wire.onReceive(receiveData);
+
+    Serial.println("Arduino 3 ready!");
 }
 
 void loop() {
+
+  if(inString != "") {
+    Serial.print("dir: "); Serial.println(dir);
+  }
 
   switch (dir) {
     case 'f': //forward
@@ -131,6 +139,7 @@ void loop() {
         break;
     }
 
+    inString = "";
     delay(100); // For proper i2c timing
 }
 
@@ -150,13 +159,12 @@ void stop_all_motors() {
 
 void receiveData(int byteCount) {
     int inChar;
-    String inString="";
-    
+
     while (Wire.available()){
       inChar = Wire.read();
       inString += char(inChar);
   }
 
   dir = inString[1];
+  
 }
-
